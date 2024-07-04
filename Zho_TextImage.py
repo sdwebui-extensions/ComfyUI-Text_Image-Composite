@@ -329,11 +329,7 @@ class Text_Image_Multiline_Zho:
 
     @classmethod
     def CACHE_FONTS(cls):
-        font_extensions = ["*.ttf", "*.otf", "*.woff", "*.woff2", "*.eot"]
-        fonts = []
-
-        for extension in font_extensions:
-            fonts.extend(comfy_dir.glob(f"**/{extension}"))
+        fonts = total_fonts
 
         if not fonts:
             log.warn(
