@@ -5,6 +5,8 @@ import numpy as np
 import torch
 from PIL import Image, ImageDraw, ImageFont
 import math
+import os
+from .font_files import total_fonts
 
 #----------------------------------------------------------------------------
 here = Path(__file__).parent.absolute()
@@ -123,11 +125,7 @@ class Text_Image_Zho:
 
     @classmethod
     def CACHE_FONTS(cls):
-        font_extensions = ["*.ttf", "*.otf", "*.woff", "*.woff2", "*.eot"]
-        fonts = []
-
-        for extension in font_extensions:
-            fonts.extend(comfy_dir.glob(f"**/{extension}"))
+        fonts = total_fonts
 
         if not fonts:
             log.warn(
